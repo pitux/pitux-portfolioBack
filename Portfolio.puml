@@ -1,0 +1,494 @@
+@startuml
+annotation com.fasterxml.jackson.annotation.JsonIgnore
+annotation com.portfolioAp.pdg.security.controller.CrossOrigin
+annotation com.portfolioAp.pdg.security.controller.PostMapping
+annotation com.portfolioAp.pdg.security.controller.RequestBody
+annotation com.portfolioAp.pdg.security.controller.RequestMapping
+annotation com.portfolioAp.pdg.security.controller.RestController
+annotation java.lang.Override
+annotation javax.persistence.Column
+annotation javax.persistence.Entity
+annotation javax.persistence.Enumerated
+annotation javax.persistence.GeneratedValue
+annotation javax.persistence.Id
+annotation javax.persistence.JoinColumn
+annotation javax.persistence.JoinTable
+annotation javax.persistence.ManyToMany
+annotation javax.persistence.ManyToOne
+annotation javax.persistence.OneToMany
+annotation javax.persistence.Table
+annotation javax.transaction.Transactional
+annotation javax.validation.Valid
+annotation javax.validation.constraints.Email
+annotation javax.validation.constraints.NotBlank
+annotation javax.validation.constraints.NotNull
+annotation lombok.Getter
+annotation lombok.Setter
+annotation org.springframework.beans.factory.annotation.Autowired
+annotation org.springframework.beans.factory.annotation.Value
+annotation org.springframework.boot.autoconfigure.SpringBootApplication
+annotation org.springframework.context.annotation.Bean
+annotation org.springframework.context.annotation.Configuration
+annotation org.springframework.security.access.prepost.PreAuthorize
+annotation org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity
+annotation org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
+annotation org.springframework.stereotype.Component
+annotation org.springframework.stereotype.Repository
+annotation org.springframework.stereotype.Service
+annotation org.springframework.web.bind.annotation.DeleteMapping
+annotation org.springframework.web.bind.annotation.GetMapping
+annotation org.springframework.web.bind.annotation.PathVariable
+annotation org.springframework.web.bind.annotation.PostMapping
+annotation org.springframework.web.bind.annotation.PutMapping
+annotation org.springframework.web.bind.annotation.RequestBody
+annotation org.springframework.web.bind.annotation.RequestMapping
+annotation org.springframework.web.bind.annotation.ResponseBody
+annotation org.springframework.web.bind.annotation.RestController
+class com.portfolioAp.pdg.PdgApplication
+class com.portfolioAp.pdg.controller.JobController
+class com.portfolioAp.pdg.controller.PortfolioController
+class com.portfolioAp.pdg.controller.ProjectController
+class com.portfolioAp.pdg.controller.SkillController
+class com.portfolioAp.pdg.controller.StudyController
+class com.portfolioAp.pdg.model.Job
+class com.portfolioAp.pdg.model.Mensaje
+class com.portfolioAp.pdg.model.Portfolio
+class com.portfolioAp.pdg.model.Project
+class com.portfolioAp.pdg.model.Skill
+class com.portfolioAp.pdg.model.Study
+class com.portfolioAp.pdg.security.MainSecurity
+class com.portfolioAp.pdg.security.controller.AuthController
+class com.portfolioAp.pdg.security.dto.JwtDto
+class com.portfolioAp.pdg.security.dto.LoginUsuario
+class com.portfolioAp.pdg.security.dto.NuevoUsuario
+class com.portfolioAp.pdg.security.entity.Rol
+class com.portfolioAp.pdg.security.entity.Usuario
+class com.portfolioAp.pdg.security.entity.UsuarioPrincipal
+class com.portfolioAp.pdg.security.jwt.JwtEntryPoint
+class com.portfolioAp.pdg.security.jwt.JwtProvider
+class com.portfolioAp.pdg.security.jwt.JwtTokenFilter
+class com.portfolioAp.pdg.security.services.RolService
+class com.portfolioAp.pdg.security.services.UserDetailsServiceImpl
+class com.portfolioAp.pdg.security.services.UsuarioService
+class com.portfolioAp.pdg.services.JobService
+class com.portfolioAp.pdg.services.PortfolioService
+class com.portfolioAp.pdg.services.ProjectService
+class com.portfolioAp.pdg.services.SkillService
+class com.portfolioAp.pdg.services.StudyService
+class io.jsonwebtoken.ExpiredJwtException
+class io.jsonwebtoken.Jwts
+class io.jsonwebtoken.MalformedJwtException
+class io.jsonwebtoken.SignatureAlgorithm
+class io.jsonwebtoken.SignatureException
+class io.jsonwebtoken.UnsupportedJwtException
+class java.io.IOException
+class java.util.ArrayList
+class java.util.Collection
+class java.util.Date
+class java.util.HashSet
+class java.util.List
+class java.util.Optional
+class java.util.Set
+class java.util.stream.Collectors
+class javax.persistence.EnumType
+class javax.persistence.FetchType
+class javax.persistence.GenerationType
+class javax.servlet.FilterChain
+class javax.servlet.ServletException
+class javax.servlet.http.HttpServletRequest
+class javax.servlet.http.HttpServletResponse
+class org.slf4j.Logger
+class org.slf4j.LoggerFactory
+class org.springframework.boot.SpringApplication
+class org.springframework.http.HttpStatus
+class org.springframework.http.ResponseEntity
+class org.springframework.security.authentication.AuthenticationManager
+class org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+class org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
+class org.springframework.security.config.annotation.web.builders.HttpSecurity
+class org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+class org.springframework.security.config.http.SessionCreationPolicy
+class org.springframework.security.core.Authentication
+class org.springframework.security.core.AuthenticationException
+class org.springframework.security.core.GrantedAuthority
+class org.springframework.security.core.authority.SimpleGrantedAuthority
+class org.springframework.security.core.context.SecurityContextHolder
+class org.springframework.security.core.userdetails.UsernameNotFoundException
+class org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+class org.springframework.security.crypto.password.PasswordEncoder
+class org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
+class org.springframework.validation.BindingResult
+class org.springframework.web.filter.OncePerRequestFilter
+enum com.portfolioAp.pdg.security.enums.RolNombre
+interface com.portfolioAp.pdg.repository.JobsRepository
+interface com.portfolioAp.pdg.repository.PortfolioRepository
+interface com.portfolioAp.pdg.repository.ProjectRepository
+interface com.portfolioAp.pdg.repository.SkillRepository
+interface com.portfolioAp.pdg.repository.StudyRepository
+interface com.portfolioAp.pdg.security.repository.IRolRepository
+interface com.portfolioAp.pdg.security.repository.IUsuarioRepository
+interface com.portfolioAp.pdg.services.IJobService
+interface com.portfolioAp.pdg.services.IPortfolioService
+interface com.portfolioAp.pdg.services.IProjectService
+interface com.portfolioAp.pdg.services.ISkillService
+interface com.portfolioAp.pdg.services.IStudyService
+interface java.io.Serializable
+interface org.springframework.data.jpa.repository.JpaRepository
+interface org.springframework.security.core.userdetails.UserDetails
+interface org.springframework.security.core.userdetails.UserDetailsService
+interface org.springframework.security.web.AuthenticationEntryPoint
+com.portfolioAp.pdg.PdgApplication ..> org.springframework.boot.autoconfigure.SpringBootApplication
+com.portfolioAp.pdg.PdgApplication ..> org.springframework.boot.SpringApplication
+com.portfolioAp.pdg.controller.JobController ..> org.springframework.beans.factory.annotation.Autowired
+com.portfolioAp.pdg.controller.JobController ..> org.springframework.security.access.prepost.PreAuthorize
+com.portfolioAp.pdg.controller.JobController ..> org.springframework.web.bind.annotation.DeleteMapping
+com.portfolioAp.pdg.controller.JobController ..> org.springframework.web.bind.annotation.GetMapping
+com.portfolioAp.pdg.controller.JobController ..> org.springframework.web.bind.annotation.PathVariable
+com.portfolioAp.pdg.controller.JobController ..> org.springframework.web.bind.annotation.PostMapping
+com.portfolioAp.pdg.controller.JobController ..> org.springframework.web.bind.annotation.PutMapping
+com.portfolioAp.pdg.controller.JobController ..> org.springframework.web.bind.annotation.RequestBody
+com.portfolioAp.pdg.controller.JobController ..> org.springframework.web.bind.annotation.RequestMapping
+com.portfolioAp.pdg.controller.JobController ..> org.springframework.web.bind.annotation.ResponseBody
+com.portfolioAp.pdg.controller.JobController ..> org.springframework.web.bind.annotation.RestController
+com.portfolioAp.pdg.controller.JobController ..> com.portfolioAp.pdg.model.Job
+com.portfolioAp.pdg.controller.JobController ..> com.portfolioAp.pdg.model.Mensaje
+com.portfolioAp.pdg.controller.JobController ..> java.util.List
+com.portfolioAp.pdg.controller.JobController ..> org.springframework.http.HttpStatus
+com.portfolioAp.pdg.controller.JobController ..> org.springframework.http.ResponseEntity
+com.portfolioAp.pdg.controller.JobController ..> com.portfolioAp.pdg.services.IJobService
+com.portfolioAp.pdg.controller.PortfolioController ..> org.springframework.beans.factory.annotation.Autowired
+com.portfolioAp.pdg.controller.PortfolioController ..> org.springframework.security.access.prepost.PreAuthorize
+com.portfolioAp.pdg.controller.PortfolioController ..> org.springframework.web.bind.annotation.DeleteMapping
+com.portfolioAp.pdg.controller.PortfolioController ..> org.springframework.web.bind.annotation.GetMapping
+com.portfolioAp.pdg.controller.PortfolioController ..> org.springframework.web.bind.annotation.PathVariable
+com.portfolioAp.pdg.controller.PortfolioController ..> org.springframework.web.bind.annotation.PostMapping
+com.portfolioAp.pdg.controller.PortfolioController ..> org.springframework.web.bind.annotation.PutMapping
+com.portfolioAp.pdg.controller.PortfolioController ..> org.springframework.web.bind.annotation.RequestBody
+com.portfolioAp.pdg.controller.PortfolioController ..> org.springframework.web.bind.annotation.ResponseBody
+com.portfolioAp.pdg.controller.PortfolioController ..> org.springframework.web.bind.annotation.RestController
+com.portfolioAp.pdg.controller.PortfolioController ..> com.portfolioAp.pdg.model.Portfolio
+com.portfolioAp.pdg.controller.PortfolioController ..> java.util.ArrayList
+com.portfolioAp.pdg.controller.PortfolioController ..> java.util.List
+com.portfolioAp.pdg.controller.PortfolioController ..> com.portfolioAp.pdg.services.IPortfolioService
+com.portfolioAp.pdg.controller.ProjectController ..> org.springframework.beans.factory.annotation.Autowired
+com.portfolioAp.pdg.controller.ProjectController ..> org.springframework.security.access.prepost.PreAuthorize
+com.portfolioAp.pdg.controller.ProjectController ..> org.springframework.web.bind.annotation.DeleteMapping
+com.portfolioAp.pdg.controller.ProjectController ..> org.springframework.web.bind.annotation.GetMapping
+com.portfolioAp.pdg.controller.ProjectController ..> org.springframework.web.bind.annotation.PathVariable
+com.portfolioAp.pdg.controller.ProjectController ..> org.springframework.web.bind.annotation.PostMapping
+com.portfolioAp.pdg.controller.ProjectController ..> org.springframework.web.bind.annotation.PutMapping
+com.portfolioAp.pdg.controller.ProjectController ..> org.springframework.web.bind.annotation.RequestBody
+com.portfolioAp.pdg.controller.ProjectController ..> org.springframework.web.bind.annotation.RequestMapping
+com.portfolioAp.pdg.controller.ProjectController ..> org.springframework.web.bind.annotation.ResponseBody
+com.portfolioAp.pdg.controller.ProjectController ..> org.springframework.web.bind.annotation.RestController
+com.portfolioAp.pdg.controller.ProjectController ..> com.portfolioAp.pdg.model.Mensaje
+com.portfolioAp.pdg.controller.ProjectController ..> com.portfolioAp.pdg.model.Project
+com.portfolioAp.pdg.controller.ProjectController ..> java.util.List
+com.portfolioAp.pdg.controller.ProjectController ..> org.springframework.http.HttpStatus
+com.portfolioAp.pdg.controller.ProjectController ..> org.springframework.http.ResponseEntity
+com.portfolioAp.pdg.controller.ProjectController ..> com.portfolioAp.pdg.services.IProjectService
+com.portfolioAp.pdg.controller.SkillController ..> org.springframework.beans.factory.annotation.Autowired
+com.portfolioAp.pdg.controller.SkillController ..> org.springframework.security.access.prepost.PreAuthorize
+com.portfolioAp.pdg.controller.SkillController ..> org.springframework.web.bind.annotation.DeleteMapping
+com.portfolioAp.pdg.controller.SkillController ..> org.springframework.web.bind.annotation.GetMapping
+com.portfolioAp.pdg.controller.SkillController ..> org.springframework.web.bind.annotation.PathVariable
+com.portfolioAp.pdg.controller.SkillController ..> org.springframework.web.bind.annotation.PostMapping
+com.portfolioAp.pdg.controller.SkillController ..> org.springframework.web.bind.annotation.PutMapping
+com.portfolioAp.pdg.controller.SkillController ..> org.springframework.web.bind.annotation.RequestBody
+com.portfolioAp.pdg.controller.SkillController ..> org.springframework.web.bind.annotation.RequestMapping
+com.portfolioAp.pdg.controller.SkillController ..> org.springframework.web.bind.annotation.ResponseBody
+com.portfolioAp.pdg.controller.SkillController ..> org.springframework.web.bind.annotation.RestController
+com.portfolioAp.pdg.controller.SkillController ..> com.portfolioAp.pdg.model.Mensaje
+com.portfolioAp.pdg.controller.SkillController ..> com.portfolioAp.pdg.model.Skill
+com.portfolioAp.pdg.controller.SkillController ..> java.util.List
+com.portfolioAp.pdg.controller.SkillController ..> org.springframework.http.HttpStatus
+com.portfolioAp.pdg.controller.SkillController ..> org.springframework.http.ResponseEntity
+com.portfolioAp.pdg.controller.SkillController ..> com.portfolioAp.pdg.services.ISkillService
+com.portfolioAp.pdg.controller.StudyController ..> org.springframework.beans.factory.annotation.Autowired
+com.portfolioAp.pdg.controller.StudyController ..> org.springframework.web.bind.annotation.GetMapping
+com.portfolioAp.pdg.controller.StudyController ..> org.springframework.web.bind.annotation.PathVariable
+com.portfolioAp.pdg.controller.StudyController ..> org.springframework.web.bind.annotation.PostMapping
+com.portfolioAp.pdg.controller.StudyController ..> org.springframework.web.bind.annotation.RequestBody
+com.portfolioAp.pdg.controller.StudyController ..> org.springframework.web.bind.annotation.ResponseBody
+com.portfolioAp.pdg.controller.StudyController ..> org.springframework.web.bind.annotation.RestController
+com.portfolioAp.pdg.controller.StudyController ..> com.portfolioAp.pdg.model.Study
+com.portfolioAp.pdg.controller.StudyController ..> com.portfolioAp.pdg.services.IStudyService
+com.portfolioAp.pdg.model.Job ..> com.fasterxml.jackson.annotation.JsonIgnore
+com.portfolioAp.pdg.model.Job ..> javax.persistence.Entity
+com.portfolioAp.pdg.model.Job ..> javax.persistence.GeneratedValue
+com.portfolioAp.pdg.model.Job ..> javax.persistence.Id
+com.portfolioAp.pdg.model.Job ..> javax.persistence.JoinColumn
+com.portfolioAp.pdg.model.Job ..> javax.persistence.ManyToOne
+com.portfolioAp.pdg.model.Job ..> javax.persistence.Table
+com.portfolioAp.pdg.model.Job ..> lombok.Getter
+com.portfolioAp.pdg.model.Job ..> lombok.Setter
+com.portfolioAp.pdg.model.Job ..> javax.persistence.FetchType
+com.portfolioAp.pdg.model.Job ..> javax.persistence.GenerationType
+com.portfolioAp.pdg.model.Portfolio ..> javax.persistence.Column
+com.portfolioAp.pdg.model.Portfolio ..> javax.persistence.Entity
+com.portfolioAp.pdg.model.Portfolio ..> javax.persistence.GeneratedValue
+com.portfolioAp.pdg.model.Portfolio ..> javax.persistence.Id
+com.portfolioAp.pdg.model.Portfolio ..> javax.persistence.OneToMany
+com.portfolioAp.pdg.model.Portfolio ..> javax.persistence.Table
+com.portfolioAp.pdg.model.Portfolio ..> lombok.Getter
+com.portfolioAp.pdg.model.Portfolio ..> lombok.Setter
+com.portfolioAp.pdg.model.Portfolio ..> java.util.List
+com.portfolioAp.pdg.model.Portfolio ..> javax.persistence.FetchType
+com.portfolioAp.pdg.model.Portfolio ..> javax.persistence.GenerationType
+com.portfolioAp.pdg.model.Portfolio --|> java.io.Serializable
+com.portfolioAp.pdg.model.Project ..> com.fasterxml.jackson.annotation.JsonIgnore
+com.portfolioAp.pdg.model.Project ..> javax.persistence.Entity
+com.portfolioAp.pdg.model.Project ..> javax.persistence.GeneratedValue
+com.portfolioAp.pdg.model.Project ..> javax.persistence.Id
+com.portfolioAp.pdg.model.Project ..> javax.persistence.JoinColumn
+com.portfolioAp.pdg.model.Project ..> javax.persistence.ManyToOne
+com.portfolioAp.pdg.model.Project ..> javax.persistence.Table
+com.portfolioAp.pdg.model.Project ..> lombok.Getter
+com.portfolioAp.pdg.model.Project ..> lombok.Setter
+com.portfolioAp.pdg.model.Project ..> javax.persistence.FetchType
+com.portfolioAp.pdg.model.Project ..> javax.persistence.GenerationType
+com.portfolioAp.pdg.model.Project --|> java.io.Serializable
+com.portfolioAp.pdg.model.Skill ..> com.fasterxml.jackson.annotation.JsonIgnore
+com.portfolioAp.pdg.model.Skill ..> javax.persistence.Entity
+com.portfolioAp.pdg.model.Skill ..> javax.persistence.GeneratedValue
+com.portfolioAp.pdg.model.Skill ..> javax.persistence.Id
+com.portfolioAp.pdg.model.Skill ..> javax.persistence.ManyToOne
+com.portfolioAp.pdg.model.Skill ..> javax.persistence.Table
+com.portfolioAp.pdg.model.Skill ..> lombok.Getter
+com.portfolioAp.pdg.model.Skill ..> lombok.Setter
+com.portfolioAp.pdg.model.Skill ..> javax.persistence.GenerationType
+com.portfolioAp.pdg.model.Study ..> com.fasterxml.jackson.annotation.JsonIgnore
+com.portfolioAp.pdg.model.Study ..> javax.persistence.Entity
+com.portfolioAp.pdg.model.Study ..> javax.persistence.GeneratedValue
+com.portfolioAp.pdg.model.Study ..> javax.persistence.Id
+com.portfolioAp.pdg.model.Study ..> javax.persistence.JoinColumn
+com.portfolioAp.pdg.model.Study ..> javax.persistence.ManyToOne
+com.portfolioAp.pdg.model.Study ..> javax.persistence.Table
+com.portfolioAp.pdg.model.Study ..> lombok.Getter
+com.portfolioAp.pdg.model.Study ..> lombok.Setter
+com.portfolioAp.pdg.model.Study ..> javax.persistence.FetchType
+com.portfolioAp.pdg.model.Study ..> javax.persistence.GenerationType
+com.portfolioAp.pdg.model.Study --|> java.io.Serializable
+com.portfolioAp.pdg.security.MainSecurity ..> java.lang.Override
+com.portfolioAp.pdg.security.MainSecurity ..> org.springframework.beans.factory.annotation.Autowired
+com.portfolioAp.pdg.security.MainSecurity ..> org.springframework.context.annotation.Bean
+com.portfolioAp.pdg.security.MainSecurity ..> org.springframework.context.annotation.Configuration
+com.portfolioAp.pdg.security.MainSecurity ..> org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity
+com.portfolioAp.pdg.security.MainSecurity ..> org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
+com.portfolioAp.pdg.security.MainSecurity ..> com.portfolioAp.pdg.security.jwt.JwtEntryPoint
+com.portfolioAp.pdg.security.MainSecurity ..> com.portfolioAp.pdg.security.jwt.JwtTokenFilter
+com.portfolioAp.pdg.security.MainSecurity ..> com.portfolioAp.pdg.security.services.UserDetailsServiceImpl
+com.portfolioAp.pdg.security.MainSecurity ..> org.springframework.security.authentication.AuthenticationManager
+com.portfolioAp.pdg.security.MainSecurity ..> org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
+com.portfolioAp.pdg.security.MainSecurity ..> org.springframework.security.config.annotation.web.builders.HttpSecurity
+com.portfolioAp.pdg.security.MainSecurity --|> org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+com.portfolioAp.pdg.security.MainSecurity ..> org.springframework.security.config.http.SessionCreationPolicy
+com.portfolioAp.pdg.security.MainSecurity ..> org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+com.portfolioAp.pdg.security.MainSecurity ..> org.springframework.security.crypto.password.PasswordEncoder
+com.portfolioAp.pdg.security.MainSecurity ..> org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
+com.portfolioAp.pdg.security.controller.AuthController ..> com.portfolioAp.pdg.security.controller.CrossOrigin
+com.portfolioAp.pdg.security.controller.AuthController ..> com.portfolioAp.pdg.security.controller.PostMapping
+com.portfolioAp.pdg.security.controller.AuthController ..> com.portfolioAp.pdg.security.controller.RequestBody
+com.portfolioAp.pdg.security.controller.AuthController ..> com.portfolioAp.pdg.security.controller.RequestMapping
+com.portfolioAp.pdg.security.controller.AuthController ..> com.portfolioAp.pdg.security.controller.RestController
+com.portfolioAp.pdg.security.controller.AuthController ..> javax.validation.Valid
+com.portfolioAp.pdg.security.controller.AuthController ..> org.springframework.beans.factory.annotation.Autowired
+com.portfolioAp.pdg.security.controller.AuthController ..> com.portfolioAp.pdg.model.Mensaje
+com.portfolioAp.pdg.security.controller.AuthController ..> com.portfolioAp.pdg.security.dto.JwtDto
+com.portfolioAp.pdg.security.controller.AuthController ..> com.portfolioAp.pdg.security.dto.LoginUsuario
+com.portfolioAp.pdg.security.controller.AuthController ..> com.portfolioAp.pdg.security.dto.NuevoUsuario
+com.portfolioAp.pdg.security.controller.AuthController ..> com.portfolioAp.pdg.security.entity.Rol
+com.portfolioAp.pdg.security.controller.AuthController ..> com.portfolioAp.pdg.security.entity.Usuario
+com.portfolioAp.pdg.security.controller.AuthController ..> com.portfolioAp.pdg.security.jwt.JwtProvider
+com.portfolioAp.pdg.security.controller.AuthController ..> com.portfolioAp.pdg.security.services.RolService
+com.portfolioAp.pdg.security.controller.AuthController ..> com.portfolioAp.pdg.security.services.UsuarioService
+com.portfolioAp.pdg.security.controller.AuthController ..> java.util.HashSet
+com.portfolioAp.pdg.security.controller.AuthController ..> java.util.Set
+com.portfolioAp.pdg.security.controller.AuthController ..> org.springframework.http.HttpStatus
+com.portfolioAp.pdg.security.controller.AuthController ..> org.springframework.http.ResponseEntity
+com.portfolioAp.pdg.security.controller.AuthController ..> org.springframework.security.authentication.AuthenticationManager
+com.portfolioAp.pdg.security.controller.AuthController ..> org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+com.portfolioAp.pdg.security.controller.AuthController ..> org.springframework.security.core.Authentication
+com.portfolioAp.pdg.security.controller.AuthController ..> org.springframework.security.core.context.SecurityContextHolder
+com.portfolioAp.pdg.security.controller.AuthController ..> org.springframework.security.crypto.password.PasswordEncoder
+com.portfolioAp.pdg.security.controller.AuthController ..> org.springframework.validation.BindingResult
+com.portfolioAp.pdg.security.controller.AuthController ..> com.portfolioAp.pdg.security.enums.RolNombre
+com.portfolioAp.pdg.security.controller.AuthController ..> org.springframework.security.core.userdetails.UserDetails
+com.portfolioAp.pdg.security.dto.JwtDto ..> java.util.Collection
+com.portfolioAp.pdg.security.dto.JwtDto ..> org.springframework.security.core.GrantedAuthority
+com.portfolioAp.pdg.security.dto.LoginUsuario ..> javax.validation.constraints.NotBlank
+com.portfolioAp.pdg.security.dto.LoginUsuario ..> lombok.Getter
+com.portfolioAp.pdg.security.dto.LoginUsuario ..> lombok.Setter
+com.portfolioAp.pdg.security.dto.NuevoUsuario ..> javax.validation.constraints.Email
+com.portfolioAp.pdg.security.dto.NuevoUsuario ..> javax.validation.constraints.NotBlank
+com.portfolioAp.pdg.security.dto.NuevoUsuario ..> lombok.Getter
+com.portfolioAp.pdg.security.dto.NuevoUsuario ..> lombok.Setter
+com.portfolioAp.pdg.security.dto.NuevoUsuario ..> java.util.HashSet
+com.portfolioAp.pdg.security.dto.NuevoUsuario ..> java.util.Set
+com.portfolioAp.pdg.security.entity.Rol ..> javax.persistence.Entity
+com.portfolioAp.pdg.security.entity.Rol ..> javax.persistence.Enumerated
+com.portfolioAp.pdg.security.entity.Rol ..> javax.persistence.GeneratedValue
+com.portfolioAp.pdg.security.entity.Rol ..> javax.persistence.Id
+com.portfolioAp.pdg.security.entity.Rol ..> javax.validation.constraints.NotNull
+com.portfolioAp.pdg.security.entity.Rol ..> lombok.Getter
+com.portfolioAp.pdg.security.entity.Rol ..> lombok.Setter
+com.portfolioAp.pdg.security.entity.Rol ..> javax.persistence.EnumType
+com.portfolioAp.pdg.security.entity.Rol ..> javax.persistence.GenerationType
+com.portfolioAp.pdg.security.entity.Rol ..> com.portfolioAp.pdg.security.enums.RolNombre
+com.portfolioAp.pdg.security.entity.Usuario ..> javax.persistence.Column
+com.portfolioAp.pdg.security.entity.Usuario ..> javax.persistence.Entity
+com.portfolioAp.pdg.security.entity.Usuario ..> javax.persistence.GeneratedValue
+com.portfolioAp.pdg.security.entity.Usuario ..> javax.persistence.Id
+com.portfolioAp.pdg.security.entity.Usuario ..> javax.persistence.JoinColumn
+com.portfolioAp.pdg.security.entity.Usuario ..> javax.persistence.JoinTable
+com.portfolioAp.pdg.security.entity.Usuario ..> javax.persistence.ManyToMany
+com.portfolioAp.pdg.security.entity.Usuario ..> javax.validation.constraints.NotNull
+com.portfolioAp.pdg.security.entity.Usuario ..> lombok.Getter
+com.portfolioAp.pdg.security.entity.Usuario ..> lombok.Setter
+com.portfolioAp.pdg.security.entity.Usuario ..> java.util.HashSet
+com.portfolioAp.pdg.security.entity.Usuario ..> java.util.Set
+com.portfolioAp.pdg.security.entity.Usuario ..> javax.persistence.FetchType
+com.portfolioAp.pdg.security.entity.Usuario ..> javax.persistence.GenerationType
+com.portfolioAp.pdg.security.entity.UsuarioPrincipal ..> java.lang.Override
+com.portfolioAp.pdg.security.entity.UsuarioPrincipal ..> java.util.Collection
+com.portfolioAp.pdg.security.entity.UsuarioPrincipal ..> java.util.List
+com.portfolioAp.pdg.security.entity.UsuarioPrincipal ..> java.util.stream.Collectors
+com.portfolioAp.pdg.security.entity.UsuarioPrincipal ..> org.springframework.security.core.GrantedAuthority
+com.portfolioAp.pdg.security.entity.UsuarioPrincipal ..> org.springframework.security.core.authority.SimpleGrantedAuthority
+com.portfolioAp.pdg.security.entity.UsuarioPrincipal --|> org.springframework.security.core.userdetails.UserDetails
+com.portfolioAp.pdg.security.jwt.JwtEntryPoint ..> java.lang.Override
+com.portfolioAp.pdg.security.jwt.JwtEntryPoint ..> org.springframework.stereotype.Component
+com.portfolioAp.pdg.security.jwt.JwtEntryPoint ..> java.io.IOException
+com.portfolioAp.pdg.security.jwt.JwtEntryPoint ..> javax.servlet.ServletException
+com.portfolioAp.pdg.security.jwt.JwtEntryPoint ..> javax.servlet.http.HttpServletRequest
+com.portfolioAp.pdg.security.jwt.JwtEntryPoint ..> javax.servlet.http.HttpServletResponse
+com.portfolioAp.pdg.security.jwt.JwtEntryPoint ..> org.slf4j.Logger
+com.portfolioAp.pdg.security.jwt.JwtEntryPoint ..> org.slf4j.LoggerFactory
+com.portfolioAp.pdg.security.jwt.JwtEntryPoint ..> org.springframework.security.core.AuthenticationException
+com.portfolioAp.pdg.security.jwt.JwtEntryPoint --|> org.springframework.security.web.AuthenticationEntryPoint
+com.portfolioAp.pdg.security.jwt.JwtProvider ..> org.springframework.beans.factory.annotation.Value
+com.portfolioAp.pdg.security.jwt.JwtProvider ..> org.springframework.stereotype.Component
+com.portfolioAp.pdg.security.jwt.JwtProvider ..> com.portfolioAp.pdg.security.entity.UsuarioPrincipal
+com.portfolioAp.pdg.security.jwt.JwtProvider ..> io.jsonwebtoken.ExpiredJwtException
+com.portfolioAp.pdg.security.jwt.JwtProvider ..> io.jsonwebtoken.Jwts
+com.portfolioAp.pdg.security.jwt.JwtProvider ..> io.jsonwebtoken.MalformedJwtException
+com.portfolioAp.pdg.security.jwt.JwtProvider ..> io.jsonwebtoken.SignatureAlgorithm
+com.portfolioAp.pdg.security.jwt.JwtProvider ..> io.jsonwebtoken.SignatureException
+com.portfolioAp.pdg.security.jwt.JwtProvider ..> io.jsonwebtoken.UnsupportedJwtException
+com.portfolioAp.pdg.security.jwt.JwtProvider ..> java.util.Date
+com.portfolioAp.pdg.security.jwt.JwtProvider ..> org.slf4j.Logger
+com.portfolioAp.pdg.security.jwt.JwtProvider ..> org.slf4j.LoggerFactory
+com.portfolioAp.pdg.security.jwt.JwtProvider ..> org.springframework.security.core.Authentication
+com.portfolioAp.pdg.security.jwt.JwtTokenFilter ..> java.lang.Override
+com.portfolioAp.pdg.security.jwt.JwtTokenFilter ..> org.springframework.beans.factory.annotation.Autowired
+com.portfolioAp.pdg.security.jwt.JwtTokenFilter ..> com.portfolioAp.pdg.security.services.UserDetailsServiceImpl
+com.portfolioAp.pdg.security.jwt.JwtTokenFilter ..> java.io.IOException
+com.portfolioAp.pdg.security.jwt.JwtTokenFilter ..> javax.servlet.FilterChain
+com.portfolioAp.pdg.security.jwt.JwtTokenFilter ..> javax.servlet.ServletException
+com.portfolioAp.pdg.security.jwt.JwtTokenFilter ..> javax.servlet.http.HttpServletRequest
+com.portfolioAp.pdg.security.jwt.JwtTokenFilter ..> javax.servlet.http.HttpServletResponse
+com.portfolioAp.pdg.security.jwt.JwtTokenFilter ..> org.slf4j.Logger
+com.portfolioAp.pdg.security.jwt.JwtTokenFilter ..> org.slf4j.LoggerFactory
+com.portfolioAp.pdg.security.jwt.JwtTokenFilter ..> org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+com.portfolioAp.pdg.security.jwt.JwtTokenFilter ..> org.springframework.security.core.context.SecurityContextHolder
+com.portfolioAp.pdg.security.jwt.JwtTokenFilter --|> org.springframework.web.filter.OncePerRequestFilter
+com.portfolioAp.pdg.security.jwt.JwtTokenFilter ..> org.springframework.security.core.userdetails.UserDetails
+com.portfolioAp.pdg.security.services.RolService ..> javax.transaction.Transactional
+com.portfolioAp.pdg.security.services.RolService ..> org.springframework.beans.factory.annotation.Autowired
+com.portfolioAp.pdg.security.services.RolService ..> org.springframework.stereotype.Service
+com.portfolioAp.pdg.security.services.RolService ..> com.portfolioAp.pdg.security.entity.Rol
+com.portfolioAp.pdg.security.services.RolService ..> java.util.Optional
+com.portfolioAp.pdg.security.services.RolService ..> com.portfolioAp.pdg.security.enums.RolNombre
+com.portfolioAp.pdg.security.services.RolService ..> com.portfolioAp.pdg.security.repository.IRolRepository
+com.portfolioAp.pdg.security.services.UserDetailsServiceImpl ..> java.lang.Override
+com.portfolioAp.pdg.security.services.UserDetailsServiceImpl ..> org.springframework.beans.factory.annotation.Autowired
+com.portfolioAp.pdg.security.services.UserDetailsServiceImpl ..> org.springframework.stereotype.Service
+com.portfolioAp.pdg.security.services.UserDetailsServiceImpl ..> com.portfolioAp.pdg.security.entity.Usuario
+com.portfolioAp.pdg.security.services.UserDetailsServiceImpl ..> com.portfolioAp.pdg.security.entity.UsuarioPrincipal
+com.portfolioAp.pdg.security.services.UserDetailsServiceImpl ..> org.springframework.security.core.userdetails.UsernameNotFoundException
+com.portfolioAp.pdg.security.services.UserDetailsServiceImpl ..> org.springframework.security.core.userdetails.UserDetails
+com.portfolioAp.pdg.security.services.UserDetailsServiceImpl --|> org.springframework.security.core.userdetails.UserDetailsService
+com.portfolioAp.pdg.security.services.UsuarioService ..> javax.transaction.Transactional
+com.portfolioAp.pdg.security.services.UsuarioService ..> org.springframework.beans.factory.annotation.Autowired
+com.portfolioAp.pdg.security.services.UsuarioService ..> org.springframework.stereotype.Service
+com.portfolioAp.pdg.security.services.UsuarioService ..> com.portfolioAp.pdg.security.entity.Usuario
+com.portfolioAp.pdg.security.services.UsuarioService ..> java.util.Optional
+com.portfolioAp.pdg.security.services.UsuarioService ..> com.portfolioAp.pdg.security.repository.IUsuarioRepository
+com.portfolioAp.pdg.services.JobService ..> java.lang.Override
+com.portfolioAp.pdg.services.JobService ..> org.springframework.beans.factory.annotation.Autowired
+com.portfolioAp.pdg.services.JobService ..> org.springframework.stereotype.Service
+com.portfolioAp.pdg.services.JobService ..> com.portfolioAp.pdg.model.Job
+com.portfolioAp.pdg.services.JobService ..> java.util.List
+com.portfolioAp.pdg.services.JobService ..> java.util.Optional
+com.portfolioAp.pdg.services.JobService ..> com.portfolioAp.pdg.repository.JobsRepository
+com.portfolioAp.pdg.services.JobService --|> com.portfolioAp.pdg.services.IJobService
+com.portfolioAp.pdg.services.PortfolioService ..> java.lang.Override
+com.portfolioAp.pdg.services.PortfolioService ..> org.springframework.beans.factory.annotation.Autowired
+com.portfolioAp.pdg.services.PortfolioService ..> org.springframework.stereotype.Service
+com.portfolioAp.pdg.services.PortfolioService ..> com.portfolioAp.pdg.model.Portfolio
+com.portfolioAp.pdg.services.PortfolioService ..> java.util.List
+com.portfolioAp.pdg.services.PortfolioService ..> com.portfolioAp.pdg.repository.PortfolioRepository
+com.portfolioAp.pdg.services.PortfolioService --|> com.portfolioAp.pdg.services.IPortfolioService
+com.portfolioAp.pdg.services.ProjectService ..> java.lang.Override
+com.portfolioAp.pdg.services.ProjectService ..> org.springframework.beans.factory.annotation.Autowired
+com.portfolioAp.pdg.services.ProjectService ..> org.springframework.stereotype.Service
+com.portfolioAp.pdg.services.ProjectService ..> com.portfolioAp.pdg.model.Project
+com.portfolioAp.pdg.services.ProjectService ..> java.util.List
+com.portfolioAp.pdg.services.ProjectService ..> java.util.Optional
+com.portfolioAp.pdg.services.ProjectService ..> com.portfolioAp.pdg.repository.ProjectRepository
+com.portfolioAp.pdg.services.ProjectService --|> com.portfolioAp.pdg.services.IProjectService
+com.portfolioAp.pdg.services.SkillService ..> java.lang.Override
+com.portfolioAp.pdg.services.SkillService ..> org.springframework.beans.factory.annotation.Autowired
+com.portfolioAp.pdg.services.SkillService ..> org.springframework.stereotype.Service
+com.portfolioAp.pdg.services.SkillService ..> com.portfolioAp.pdg.model.Skill
+com.portfolioAp.pdg.services.SkillService ..> java.util.List
+com.portfolioAp.pdg.services.SkillService ..> java.util.Optional
+com.portfolioAp.pdg.services.SkillService ..> com.portfolioAp.pdg.repository.SkillRepository
+com.portfolioAp.pdg.services.SkillService --|> com.portfolioAp.pdg.services.ISkillService
+com.portfolioAp.pdg.services.StudyService ..> java.lang.Override
+com.portfolioAp.pdg.services.StudyService ..> org.springframework.beans.factory.annotation.Autowired
+com.portfolioAp.pdg.services.StudyService ..> org.springframework.stereotype.Service
+com.portfolioAp.pdg.services.StudyService ..> com.portfolioAp.pdg.model.Study
+com.portfolioAp.pdg.services.StudyService ..> java.util.List
+com.portfolioAp.pdg.services.StudyService ..> java.util.Optional
+com.portfolioAp.pdg.services.StudyService ..> com.portfolioAp.pdg.repository.StudyRepository
+com.portfolioAp.pdg.services.StudyService --|> com.portfolioAp.pdg.services.IStudyService
+com.portfolioAp.pdg.repository.JobsRepository ..> org.springframework.stereotype.Repository
+com.portfolioAp.pdg.repository.JobsRepository ..> com.portfolioAp.pdg.model.Job
+com.portfolioAp.pdg.repository.JobsRepository --|> org.springframework.data.jpa.repository.JpaRepository
+com.portfolioAp.pdg.repository.PortfolioRepository ..> org.springframework.stereotype.Repository
+com.portfolioAp.pdg.repository.PortfolioRepository ..> com.portfolioAp.pdg.model.Portfolio
+com.portfolioAp.pdg.repository.PortfolioRepository --|> org.springframework.data.jpa.repository.JpaRepository
+com.portfolioAp.pdg.repository.ProjectRepository ..> org.springframework.stereotype.Repository
+com.portfolioAp.pdg.repository.ProjectRepository ..> com.portfolioAp.pdg.model.Project
+com.portfolioAp.pdg.repository.ProjectRepository --|> org.springframework.data.jpa.repository.JpaRepository
+com.portfolioAp.pdg.repository.SkillRepository ..> org.springframework.stereotype.Repository
+com.portfolioAp.pdg.repository.SkillRepository ..> com.portfolioAp.pdg.model.Skill
+com.portfolioAp.pdg.repository.SkillRepository --|> org.springframework.data.jpa.repository.JpaRepository
+com.portfolioAp.pdg.repository.StudyRepository ..> org.springframework.stereotype.Repository
+com.portfolioAp.pdg.repository.StudyRepository ..> com.portfolioAp.pdg.model.Study
+com.portfolioAp.pdg.repository.StudyRepository --|> org.springframework.data.jpa.repository.JpaRepository
+com.portfolioAp.pdg.security.repository.IRolRepository ..> org.springframework.stereotype.Repository
+com.portfolioAp.pdg.security.repository.IRolRepository ..> com.portfolioAp.pdg.security.entity.Rol
+com.portfolioAp.pdg.security.repository.IRolRepository ..> java.util.Optional
+com.portfolioAp.pdg.security.repository.IRolRepository ..> com.portfolioAp.pdg.security.enums.RolNombre
+com.portfolioAp.pdg.security.repository.IRolRepository --|> org.springframework.data.jpa.repository.JpaRepository
+com.portfolioAp.pdg.security.repository.IUsuarioRepository ..> org.springframework.stereotype.Repository
+com.portfolioAp.pdg.security.repository.IUsuarioRepository ..> com.portfolioAp.pdg.security.entity.Usuario
+com.portfolioAp.pdg.security.repository.IUsuarioRepository ..> java.util.Optional
+com.portfolioAp.pdg.security.repository.IUsuarioRepository --|> org.springframework.data.jpa.repository.JpaRepository
+com.portfolioAp.pdg.services.IJobService ..> com.portfolioAp.pdg.model.Job
+com.portfolioAp.pdg.services.IJobService ..> java.util.List
+com.portfolioAp.pdg.services.IJobService ..> java.util.Optional
+com.portfolioAp.pdg.services.IPortfolioService ..> com.portfolioAp.pdg.model.Portfolio
+com.portfolioAp.pdg.services.IPortfolioService ..> java.util.List
+com.portfolioAp.pdg.services.IProjectService ..> com.portfolioAp.pdg.model.Project
+com.portfolioAp.pdg.services.IProjectService ..> java.util.List
+com.portfolioAp.pdg.services.IProjectService ..> java.util.Optional
+com.portfolioAp.pdg.services.ISkillService ..> com.portfolioAp.pdg.model.Skill
+com.portfolioAp.pdg.services.ISkillService ..> java.util.List
+com.portfolioAp.pdg.services.ISkillService ..> java.util.Optional
+com.portfolioAp.pdg.services.IStudyService ..> com.portfolioAp.pdg.model.Study
+com.portfolioAp.pdg.services.IStudyService ..> java.util.List
+com.portfolioAp.pdg.services.IStudyService ..> java.util.Optional
+@enduml

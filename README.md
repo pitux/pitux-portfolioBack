@@ -1,2 +1,3 @@
 # portfolioBackend
-# portfolioBack
+
+Desarrollo API que posteriormente será conectada al FrontEnd

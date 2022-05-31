@@ -34,17 +34,18 @@ public class StudyController {
     public List<Study> listStudies(){
         return estudios.listStudies();
     }
+       
+    @GetMapping ("/view/{id}")
+    @ResponseBody
+    public Study verStudies(@PathVariable Long id){
+     return estudios.buscarStudies(id);
+    }
     
     @PreAuthorize("hasRole('ADMIN')")  
     @PostMapping ("/new")
     public void addStudies(@RequestBody Study studies){
         estudios.saveStudy(studies);
     } 
-    @GetMapping ("/view/{id}")
-    @ResponseBody
-    public boolean verStudies(@PathVariable Long id){
-     return estudios.existStudyById(id);
-    }
     
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping ("/delete/{id}")

@@ -4,6 +4,7 @@ import com.portfolioAp.pdg.model.Mensaje;
 import com.portfolioAp.pdg.model.Project;
 import com.portfolioAp.pdg.services.IProjectService;
 import java.util.List;
+import javax.persistence.OrderBy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,8 +31,15 @@ public class ProjectController {
   
     @GetMapping ("/all")
     @ResponseBody
+    @OrderBy("project_start DESC")
     public List<Project> listJobs(){
         return proyectos.listProjects();
+    }
+    
+    @GetMapping ("/view/{id}")
+    @ResponseBody
+    public Project verProject(@PathVariable Long id){
+     return proyectos.buscarProject(id);
     }
     
     @PreAuthorize("hasRole('ADMIN')")
@@ -42,19 +50,15 @@ public class ProjectController {
   
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping ("/delete/{id}")
-    public void borrarProjects(@PathVariable Long id){
+    public void deleteProject(@PathVariable Long id){
         proyectos.deleteProject(id);
     }
-    
+     
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody Project project){
-      /* 
-        Project description
-        Project end
-        Project start
-        Project name
-        */
+/*  public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody Job jobs){*/
+
       Project project_mod = proyectos.getOne(id).get();
       /* Project name */
       project_mod.setProject_name(project.getProject_name());
@@ -64,6 +68,12 @@ public class ProjectController {
       project_mod.setProject_start(project.getProject_start());
       /* Project end */
       project_mod.setProject_end(project.getProject_end());
+      /* Project img*/
+      project_mod.setProject_img(project.getProject_img());
+      /* Project url*/
+      project_mod.setProject_url(project.getProject_url());
+      /* Project tools*/
+      project_mod.setProject_tools(project.getProject_tools());
       
       proyectos.saveProjects(project_mod);
       return new ResponseEntity(new Mensaje("El proyecto ha sido actualizado"),HttpStatus.OK);

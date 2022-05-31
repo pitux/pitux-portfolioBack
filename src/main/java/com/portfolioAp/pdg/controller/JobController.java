@@ -37,6 +37,11 @@ public class JobController {
     public List<Job> listJobs(){
         return trabajo.listJobs();
     }
+    @GetMapping ("/view/{id}")
+    @ResponseBody
+    public Job verStudies(@PathVariable Long id){
+     return trabajo.buscarJob(id);
+    }
     
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/new")
@@ -56,12 +61,10 @@ public class JobController {
       Job trabajo_mod = trabajo.getOne(id).get();
       trabajo_mod.setJob_name(jobs.getJob_name());
       trabajo_mod.setJob_place(jobs.getJob_place());
+      //trabajo_mod.setPortfolio(jobs.getPortfolio());
+      
       trabajo.saveJob(trabajo_mod);
       return new ResponseEntity(new Mensaje("El trabajo ha sido actualizado"),HttpStatus.OK);
     }
-    /*
-    public void update(@RequestBody Job jobs){
-        
-    }*/
-   
+
 }

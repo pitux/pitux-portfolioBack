@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/portfolio")
-//@CrossOrigin("http://localhost:4200")
 @CrossOrigin
 
 public class PortfolioController {
@@ -59,5 +58,6 @@ public class PortfolioController {
     public Portfolio verPortfolio(@PathVariable Long id){
      return portfolioServ.buscarPortfolio(id);
     }
+    
     
 }

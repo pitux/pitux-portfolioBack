@@ -26,21 +26,33 @@ public class Portfolio implements Serializable {
     private String lastname;
     private String email;
     private String creation_date;
-    private String title_arg_programa;
-    private String ubication;
+    private String title;
+    private String location;
     private String about_me;
+    private String profile_img;
+    
 
     public Portfolio() {
     }
 
-    public Portfolio(Long id, String firstname, String lastname, String email, String creation_date, String about_me) {
+    public Portfolio(Long id, String firstname, String lastname, String email, String creation_date, String title, String location, String about_me, String profile_img, List<Job> jobs, List<Skill> skills, List<Project> projects, List<Study> studies) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.creation_date = creation_date;
+        this.title = title;
+        this.location = location;
         this.about_me = about_me;
+        this.profile_img = profile_img;
+        this.jobs = jobs;
+        this.skills = skills;
+        this.projects = projects;
+        this.studies = studies;
     }
+
+    
+
     
     @OneToMany(fetch = FetchType.LAZY, mappedBy="portfolio")
     private List<Job> jobs;

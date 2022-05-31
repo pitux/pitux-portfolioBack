@@ -1,6 +1,7 @@
 package com.portfolioAp.pdg.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,14 +18,14 @@ import lombok.Setter;
 @Getter @Setter
 @Table(name="jobs")
 
-public class Job {
+public class Job implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)    
             
-    public Long idjobs;       
-    public String job_name;
-    public String job_place;
+    private Long idjobs;       
+    private String job_name;
+    private String job_place;
            
     public Job() { }
 

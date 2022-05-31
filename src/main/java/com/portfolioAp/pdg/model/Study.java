@@ -26,6 +26,7 @@ public class Study implements Serializable {
     public String studies_title;
     public String studies_institute;
     public String studies_year;
+    public String studies_logo;
     
     public Study() {
     }

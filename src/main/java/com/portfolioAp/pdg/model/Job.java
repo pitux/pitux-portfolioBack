@@ -26,13 +26,16 @@ public class Job implements Serializable {
     private Long idjobs;       
     private String job_name;
     private String job_place;
+    private String job_year;
            
     public Job() { }
 
-    public Job(Long idjobs, String job_name, String job_place) {
+public Job(Long idjobs, String job_name, String job_place, String job_year, Portfolio portfolio) {
         this.idjobs = idjobs;
         this.job_name = job_name;
         this.job_place = job_place;
+        this.job_year = job_year;
+        this.portfolio = portfolio;
     }
     
     @ManyToOne(fetch=FetchType.LAZY)
